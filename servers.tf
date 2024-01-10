@@ -17,7 +17,6 @@ resource "aws_instance" "frontend" {
   }
 }
 
-
 resource "aws_instance" "mongodb" {
   ami = data.aws_ami.centos.image_id
   instance_type = "t3.micro"
