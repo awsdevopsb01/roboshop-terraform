@@ -25,7 +25,7 @@ resource "null_resource" "provisioner" {
       "rm -rf roboshop-adv-shell",
       "git clone https://github.com/awsdevopsb01/roboshop-adv-shell.git",
       "cd roboshop-adv-shell",
-      "sudo bash ${each.value["name"]}}.sh"
+      "sudo bash ${each.value["name"]}.sh"
     ]
 }
 }
