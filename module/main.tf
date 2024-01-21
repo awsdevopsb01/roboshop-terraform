@@ -9,13 +9,12 @@ resource "aws_instance" "instance" {
   }
 }
 
-
 resource "aws_route53_record" "dnsrecord" {
   zone_id = "Z01307132WU1DJMGVKGO6"
   name    = "${var.component_name}-dev.nldevopsb01.online"
   type    = "A"
   ttl     = 30
-  records = [aws_instance.instance.private_ip]
+  records = aws_instance.instance.private_ip
 }
 
 resource "null_resource" "provisioner" {
