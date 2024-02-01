@@ -27,11 +27,6 @@ resource "null_resource" "provisioner" {
       host     = aws_instance.instance.private_ip
     }
 
-    inline = [
-      "rm -rf roboshop-adv-shell",
-      "git clone https://github.com/awsdevopsb01/roboshop-adv-shell.git",
-      "cd roboshop-adv-shell",
-      "sudo bash ${var.component_name}.sh"
-    ]
+    inline = var.app_type == "db" ? local.db_commands : local.app_commands
   }
 }
